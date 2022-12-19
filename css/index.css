@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: solid 1px #f001;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+:root {
+    --m-nav-w: 86vw;
+    --m-nav-h: 3em;
+    --s-bdr: 1em;
+    --s-mar: 7px;
+    --icon-box-s: 2em;
+    --icon-sz: 1em;
+    --dflt-icon-clr: #EEEDFF;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    display: none;  /* Safari and Chrome */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+
+
+body {
+    min-height: 100vh;
+    background-image: url("../src/svgs/bg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header {
+    position: fixed;
+    width: 100vw;
+    height: auto;
+}
+header > nav {
+    position: relative;
+    width: var(--m-nav-w);
+    height: var(--m-nav-h);
+    margin: calc((100vw - var(--m-nav-w)) / 4) calc((100vw - var(--m-nav-w)) / 2);
+    border-radius: var(--s-bdr);
+    background: #151520;
+    box-shadow: 0 0 5px #000000;
+    overflow: hidden;
+}
+header > nav > .contaner {
+    --icon-width: calc(var(--m-nav-h) / 1.5);
+    position: relative;
+    width: calc(100% - var(--s-mar) * 2);
+    height: calc(100% - var(--s-mar) * 2);
+    display: grid;
+    place-items: center;
+    grid-template-columns: var(--icon-box-s) auto calc(var(--icon-box-s) / 1.3);
+    margin: var(--s-mar);
+}
+header > nav > .contaner > #open-nav-btn {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+nav > .contaner > #open-nav-btn > span {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: var(--dflt-icon-clr);
+    border-radius: var(--s-bdr);
+}
+header > nav > .contaner > #li-mov-btn {
+    font-size: calc(var(--icon-sz) * 1.3);
+    color: var(--dflt-icon-clr);
+}
+header > nav > .contaner > #scroll-list {
+    position: relative;
+    width: calc(100% - var(--s-mar) * 2);
+    height: 100%;
+    overflow-x: scroll;
+    padding: 0 var(--s-mar);
+}
+nav > .contaner > #scroll-list > ul {
+    position: relative;
+    width: max-content;
+    height: 100%;
+    display: grid;
+    gap: var(--s-mar);
+    grid-template-columns: repeat(8, var(--icon-box-s));
+}
+.contaner > #scroll-list > ul > li {
+    position: relative;
+    width: 100%;
+    height: var(--icon-box-s);
+    list-style: none;
+}
+#scroll-list > ul > li > a {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+}
+ul > li > a .l-o {
+    font-size: calc(var(--icon-sz));
+    color: var(--dflt-icon-clr);
+}
